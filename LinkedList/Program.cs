@@ -17,9 +17,8 @@ namespace LinkedList
             list.append(30);
             list.display();
             Console.WriteLine("After Deleting");
-            list.popFirstElement();
+            list.popLast();
             list.display();
-           
         }
     }
 }

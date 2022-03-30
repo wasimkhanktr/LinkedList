@@ -62,6 +62,15 @@ namespace LinkedList
         {
             head = head.next;
         }
+        public void popLast()
+        {
+            Node temp = head;
+            while (temp.next.next != null)
+            {
+                temp = temp.next;
+            }
+            temp.next = null;
+        }
         public void display()
         {
             Node temp = head;
