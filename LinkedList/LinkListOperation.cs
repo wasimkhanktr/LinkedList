@@ -6,80 +6,72 @@ using System.Threading.Tasks;
 
 namespace LinkedList
 {
-    internal class LinkListOperation
+    public class LinkListOperation
     {
-        Node head = null;
-        public void append(int value)
+        public Node Head;
+        public Node Tail;
+        public LinkListOperation()
         {
-            Node temp = head;
-            Node newNode = new Node();
-            newNode.data = value;
-            newNode.next = null;
-            if (head != null)
+            Head = null;
+            Tail = null;
+        }
+        public void AddNode(Node node)
+        {
+            if (Head == null && Tail == null)
             {
-                while (temp.next != null)
-                {
-                    temp = temp.next;
-                }
-                temp.next = newNode;
+                Head = node;
+                Tail = node;
             }
             else
             {
-                head = newNode;
+                node.next = Head;
+                Head = node;
             }
         }
-        public void AddAtBeginning(int value)
+        internal void Display()
         {
-            Node newNode = new Node();
-            newNode.data = value;
-            newNode.next = null;
-            Node temp = head;
-            head = newNode;
-            newNode.next = temp;
-        }
-        public void AddAfterElement(int value, int search)
-        {
-            Node newNode = new Node();
-            newNode.data = value;
-            newNode.next = null;
-            Node temp = head;
-            while (temp != null && temp.data != search)
-            {
-                temp = temp.next;
-            }
+            Node temp = Head;
             if (temp == null)
             {
-                Console.WriteLine("Element Not found");
+                Console.WriteLine("LinkList is empty");
             }
             else
             {
-                Node temp2 = temp.next;
-                temp.next = newNode;
-                newNode.next = temp2;
+                Console.WriteLine("LinkList as follows: ");
             }
-        }
-        public void popFirstElement()
-        {
-            head = head.next;
-        }
-        public void popLast()
-        {
-            Node temp = head;
-            while (temp.next.next != null)
+            while (temp != null)
             {
+                Console.Write(temp.data);
+                if (temp.next != null)
+                {
+                    Console.Write("->"); ;
+                }
                 temp = temp.next;
             }
-            temp.next = null;
         }
-        public void display()
+        public void DeleteNodeAtFirst()
         {
-            Node temp = head;
-            while (temp.next != null)
+            if (this.Head == null)
             {
-                Console.WriteLine(temp.data);
+                Console.WriteLine("Nothig to delete");
+            }
+            Node temp = this.Head;
+            this.Head = this.Head.next;
+            Console.WriteLine("\nRemoved first node from LinkList");
+        }
+
+        public bool search(int data)
+        {
+            Node temp = this.Head;
+            while (temp != null)
+            {
+                if (temp.data == data)
+                {
+                    return true;
+                }
                 temp = temp.next;
             }
-            Console.WriteLine(temp.data);
+            return false;
         }
     }
 }
