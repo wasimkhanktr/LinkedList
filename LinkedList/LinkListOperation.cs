@@ -37,6 +37,27 @@ namespace LinkedList
             head = newNode;
             newNode.next = temp;
         }
+        public void AddAfterElement(int value, int search)
+        {
+            Node newNode = new Node();
+            newNode.data = value;
+            newNode.next = null;
+            Node temp = head;
+            while (temp != null && temp.data != search)
+            {
+                temp = temp.next;
+            }
+            if (temp == null)
+            {
+                Console.WriteLine("Element Not found");
+            }
+            else
+            {
+                Node temp2 = temp.next;
+                temp.next = newNode;
+                newNode.next = temp2;
+            }
+        }
         public void display()
         {
             Node temp = head;
