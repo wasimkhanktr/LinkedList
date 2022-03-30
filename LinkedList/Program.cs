@@ -11,10 +11,15 @@ namespace LinkedList
         static void Main(string[] args)
         {
             LinkListOperation list = new LinkListOperation();
+            Console.WriteLine("Before Deleting");
             list.append(56);
             list.append(70);
-            list.AddAfterElement(30, 56);
+            list.append(30);
             list.display();
+            Console.WriteLine("After Deleting");
+            list.popFirstElement();
+            list.display();
+           
         }
     }
 }

@@ -58,6 +58,10 @@ namespace LinkedList
                 newNode.next = temp2;
             }
         }
+        public void popFirstElement()
+        {
+            head = head.next;
+        }
         public void display()
         {
             Node temp = head;
