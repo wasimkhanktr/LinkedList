@@ -9,7 +9,7 @@ namespace LinkedList
     internal class LinkListOperation
     {
         Node head = null;
-        public void insert(int value)
+        public void append(int value)
         {
             Node temp = head;
             Node newNode = new Node();
