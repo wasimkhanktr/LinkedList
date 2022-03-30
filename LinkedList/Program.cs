@@ -11,9 +11,9 @@ namespace LinkedList
         static void Main(string[] args)
         {
             LinkListOperation list = new LinkListOperation();
-            list.insert(56);
-            list.insert(30);
-            list.insert(70);
+            list.AddAtBeginning(70);
+            list.AddAtBeginning(30);
+            list.AddAtBeginning(56);
             list.display();
         }
     }

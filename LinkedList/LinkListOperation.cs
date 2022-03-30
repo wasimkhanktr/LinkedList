@@ -28,6 +28,15 @@ namespace LinkedList
                 head = newNode;
             }
         }
+        public void AddAtBeginning(int value)
+        {
+            Node newNode = new Node();
+            newNode.data = value;
+            newNode.next = null;
+            Node temp = head;
+            head = newNode;
+            newNode.next = temp;
+        }
         public void display()
         {
             Node temp = head;
